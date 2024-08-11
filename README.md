@@ -1,6 +1,6 @@
 # PS5-BAR-Reader
 
-This repository contains code to help you verify and restore your PS5 backup data, particularly if you encounter the CE-100511-8 error during the restore process. The error (in my case) always occurs at 21% progress during restoration, indicating a possible issue with the transition between archive files.
+This repository contains code to help you verify and restore your PS5 backup data, particularly if you encounter the CE-100511-8 error during the restore process. The error (in my case) always occurs at constant % progress during restoration, indicating a possible issue with the transition between archive files.
 
 ## Background
 
@@ -74,3 +74,42 @@ typedef union caf_segment_signature_s {
     };
     uint8_t raw[ARCHIVE_SEGMENT_SIGNATURE_SIZE];
 } caf_segment_signature_t;
+
+## Hash Verification
+
+The code uses SHA-256 for hash verification to ensure that the contents of each file match the expected values.
+
+## Usage
+
+To use the code in this repository:
+
+1. **Clone the Repository**:
+    ```bash
+    git clone https://github.com/yourusername/PS5-BAR-Reader.git
+    cd PS5-BAR-Reader
+    ```
+
+2. **Compile the Code**:
+    Ensure you have a C++ compiler and OpenSSL installed. Then compile the code:
+    ```bash
+    g++ -o ps5_bar_reader main.cpp -lssl -lcrypto
+    ```
+
+3. **Run the Program**:
+    ```bash
+    ./ps5_bar_reader file1.dat file2.dat
+    ```
+
+    The program will:
+    - Read the headers of the specified files.
+    - Compute and display the SHA-256 hash of each file.
+    - Compare the headers of the two files and report any differences.
+
+## Contributing
+
+Feel free to contribute to this project by submitting issues or pull requests. Any improvements or additional features are welcome.
+
+## References
+
+- [PSDevWiki - Archive.dat](https://www.psdevwiki.com/ps5/Archive.dat)
+- [OpenSSL Documentation](https://www.openssl.org/docs/)
