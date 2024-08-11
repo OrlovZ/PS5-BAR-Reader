@@ -1,5 +1,5 @@
 # PS5-BAR-Reader
-
+(DOESN'T WORK NOW, IN PROGRESS)
 This repository contains code to help you verify and restore your PS5 backup data, particularly if you encounter the CE-100511-8 error during the restore process. The error (in my case) always occurs at constant % progress during restoration, indicating a possible issue with the transition between archive files.
 
 ## Background
@@ -74,6 +74,7 @@ typedef union caf_segment_signature_s {
     };
     uint8_t raw[ARCHIVE_SEGMENT_SIGNATURE_SIZE];
 } caf_segment_signature_t;
+```
 
 ## Hash Verification
 
