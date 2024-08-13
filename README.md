@@ -19,8 +19,6 @@ The problem consistently occurred at 21% of the restoration process. After calcu
 
 This project includes code to:
 1. **Read and Parse PS5 Backup Files**: The code reads `archive.dat` files using the structure provided by PSDevWiki.
-2. **Verify File Integrity**: By computing and comparing SHA-256 hash values, the program verifies the integrity of the backup files.
-3. **Compare Backup Files**: The tool compares the headers of different backup files to detect discrepancies.
 
 ## Structures
 
@@ -76,10 +74,6 @@ typedef union caf_segment_signature_s {
 } caf_segment_signature_t;
 ```
 
-## Hash Verification
-
-The code uses SHA-256 for hash verification to ensure that the contents of each file match the expected values.
-
 ## Usage
 
 To use the code in this repository:
@@ -98,13 +92,11 @@ To use the code in this repository:
 
 3. **Run the Program**:
     ```bash
-    ./ps5_bar_reader file1.dat file2.dat
+    ./ps5_bar_reader 
     ```
 
     The program will:
-    - Read the headers of the specified files.
-    - Compute and display the SHA-256 hash of each file.
-    - Compare the headers of the two files and report any differences.
+    - Read the headers of the all archive.dat files.
 
 ## Contributing
 
@@ -113,4 +105,3 @@ Feel free to contribute to this project by submitting issues or pull requests. A
 ## References
 
 - [PSDevWiki - Archive.dat](https://www.psdevwiki.com/ps5/Archive.dat)
-- [OpenSSL Documentation](https://www.openssl.org/docs/)
